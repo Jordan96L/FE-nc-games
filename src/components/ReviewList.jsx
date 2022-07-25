@@ -19,7 +19,6 @@ useEffect(() => {
           setReviews(response.data.reviews)
       })
     }, [category])
-    console.log(category)
 
     return (
         <div className="reviews">
