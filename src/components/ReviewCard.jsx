@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 export default function ReviewCard({review_id, title, category, owner, votes}) {
+    const URL_String = `/reviews/${review_id}`;
     return (
         <div className="review_card">
             <h3>{title}</h3>
@@ -6,6 +9,7 @@ export default function ReviewCard({review_id, title, category, owner, votes}) {
             <p>Review ID: {review_id}</p>
             <p>Category: {category}</p>
             <p>Votes: {votes}</p>
+            <p><Link to={URL_String}>View</Link></p>
         </div>
     )
 }
