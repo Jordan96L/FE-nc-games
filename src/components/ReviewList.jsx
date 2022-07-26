@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react";
 import ReviewCard from "./ReviewCard";
-//import { useParams } from 'react-router-dom'
 import FilterReviews from "./FilterReviews";
 import { useLocation } from 'react-router-dom';
 
