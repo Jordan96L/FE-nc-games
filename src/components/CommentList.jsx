@@ -8,15 +8,17 @@ const [comments, setComments] = useState([])
 const {review_id} = useParams()
 const [isOpen, setIsOpen] = useState(false)
 const [addComment, setAddComment] = useState('')
-
+const [isLoading, setIsLoading] = useState(false)
 
 const handleSubmit = (e) => {
   e.preventDefault()
+  setIsLoading(true)
   axios.post(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`, {
       username: "cooljmessy",
       body: addComment
   }).then(() => {
       setAddComment('')
+      setIsLoading(false)
   })
 }
 
@@ -49,6 +51,9 @@ return (
             })}
         </ul>
         <div className="add-comment-form">
+        <p className="loading-message">
+          {isLoading ? "Posting comment" : null}
+        </p>
         <form onSubmit={handleSubmit}>
         <textarea 
         value={addComment}
@@ -58,7 +63,7 @@ return (
         />
         <p><button type="submit">Submit</button></p>
         </form>
-        
+      
         </div>
         </div>
       )}
