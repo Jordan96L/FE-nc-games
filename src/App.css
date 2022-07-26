@@ -2,6 +2,25 @@
   text-align: center;
 }
 
-.filter-links{
-  margin: 10px;
+ul {
+  list-style-type: none;
+}
+
+.single-review-image {
+  height: 300px;
+  width: 300px;
+}
+
+.upvote-button{
+  background-color: black;
+  margin: 20px;
+}
+
+.downvote-button{
+  background-color: black;
+  margin: 20px;
+}
+
+.reset-button{
+  margin: 20px;
 }
