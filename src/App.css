@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+button {
+cursor: pointer;
+}
 ul {
   list-style-type: none;
 }
