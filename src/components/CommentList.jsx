@@ -2,24 +2,32 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import CommentCard from "./CommentCard";
-import Nav from "./Nav";
-
 
 export default function CommentList() {
 const [comments, setComments] = useState([])
 const {review_id} = useParams()
 const [isOpen, setIsOpen] = useState(false)
+const [addComment, setAddComment] = useState('')
 
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+  axios.post(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`, {
+      username: "cooljmessy",
+      body: addComment
+  }).then(() => {
+      setAddComment('')
+  })
+}
 
 useEffect(() => {
-    axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`).then((res) => {
-        setComments(res.data.comments)
-    })
-},[review_id])
+  axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`).then((res) => {
+    setComments(res.data.comments)
+})
+},[review_id, addComment])
 
 return (
     <div className="comment-list">
-        <Nav />
          <button className="comment-button"
         onClick={() => {
           setIsOpen((currentOpenness) => !currentOpenness);
@@ -35,11 +43,23 @@ return (
             {comments.map((comment) => {
                 return (
                     <li key={comment.comment_id}>
-                        <CommentCard body={comment.body} review_id={review_id}/>
+                        <CommentCard body={comment.body} review_id={review_id} author={comment.author}/>
                     </li>
                 )
             })}
         </ul>
+        <div className="add-comment-form">
+        <form onSubmit={handleSubmit}>
+        <textarea 
+        value={addComment}
+        onChange={(e) => {
+            setAddComment(e.target.value)
+        }}
+        />
+        <p><button type="submit">Submit</button></p>
+        </form>
+        
+        </div>
         </div>
       )}
         
