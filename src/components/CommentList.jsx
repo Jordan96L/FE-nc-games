@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import CommentCard from "./CommentCard";
+import { UserContext } from "../contexts/User";
+import { useContext } from "react";
 
 export default function CommentList() {
 const [comments, setComments] = useState([])
@@ -9,12 +11,13 @@ const {review_id} = useParams()
 const [isOpen, setIsOpen] = useState(false)
 const [addComment, setAddComment] = useState('')
 const [isLoading, setIsLoading] = useState(false)
+const { user } = useContext(UserContext);
 
 const handleSubmit = (e) => {
   e.preventDefault()
   setIsLoading(true)
   axios.post(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`, {
-      username: "cooljmessy",
+      username: user.username,
       body: addComment
   }).then(() => {
       setAddComment('')
@@ -61,7 +64,9 @@ return (
             setAddComment(e.target.value)
         }}
         />
-        <p><button type="submit">Submit</button></p>
+        <p><button 
+        disabled={!user.username}
+        type="submit">Submit</button></p>
         </form>
       
         </div>
