@@ -27,3 +27,7 @@ ul {
 .reset-button{
   margin: 20px;
 }
+.user-avatar-home{
+  height:100px;
+  width: 100px;
+}

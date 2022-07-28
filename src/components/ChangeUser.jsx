@@ -1,4 +1,4 @@
-import { UserContext } from "../contexts/User";
+import { UserContext } from "../contexts/User.js";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ const [isLoading, setIsLoading] = useState(false)
 
 const { user, setUser } = useContext(UserContext);
 
+const copyOfUsers = [...users]
 
 
 useEffect(() => {
@@ -25,8 +26,9 @@ return (
       {isLoading ? "Loading..." : (
         <ul>
             {users.map((profile) => {
+                const isMe = profile.username === user.username;
                 return (
-                    <li key={profile.username}>
+                    <li key={user.username}>
             <h3>{profile.username}</h3>
             <img src={profile.avatar_url} alt={profile.username} className="user-avatar-home"/>
             <p><button

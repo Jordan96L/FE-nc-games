@@ -1,9 +1,8 @@
 
-
-export default function CommentCard({body, review_id}) {
-return (
-    <div className="comment-card">
-        <p>{body}</p>
-    </div>
-)
-}
+export default function CommentCard({body, review_id, author}) {
+    return (
+        <div className="comment-card">
+            <p>{author}: {body}</p>
+        </div>
+    )
+    }
