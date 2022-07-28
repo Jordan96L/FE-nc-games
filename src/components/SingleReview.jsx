@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
-import CommentList from "./CommentList"
-
-
+import { Link } from "react-router-dom";
 
 export default function SingleReview() {
 const {review_id} = useParams()
@@ -99,7 +97,7 @@ return (
         Reset
       </button>
         </p>
-        <p><CommentList /></p>
+        <Link to={`/reviews/${review_id}/comments`}>Comments</Link>
         <h5>
             Created By: {review.owner} - {Date(review.created_at)}
         </h5>
