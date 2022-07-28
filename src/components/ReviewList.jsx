@@ -30,7 +30,7 @@ useEffect(() => {
             <ul>
                 {reviews.map((review) =>{
                 return (
-                    <li key={reviews.review_id}>
+                    <li key={review.review_id}>
                         <ReviewCard review_id={review.review_id} title={review.title} category={review.category} owner={review.owner} votes={review.votes} />
                     </li>
                 )
