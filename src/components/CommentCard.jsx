@@ -11,7 +11,7 @@ const { user } = useContext(UserContext);
     return (
         <div className="comment-card">
             <p>{author}: {body}</p>
-            <button
+           {loggedIn && (<button
         disabled={!loggedIn || !user.username}
         onClick={() => {
           setIsCommentDeleted(true);
@@ -25,7 +25,8 @@ const { user } = useContext(UserContext);
         }}
       >
         Remove Comment
-      </button>
+      </button>)
+}
         </div>
     )
     }
