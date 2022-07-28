@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
 import CommentList from "./CommentList"
+import userEvent from "@testing-library/user-event";
+import { UserContext } from "../contexts/User";
 
 
 
@@ -11,6 +13,8 @@ const {review_id} = useParams()
 const [review, setReview] = useState({})
 const [voteStatus, setVoteStatus] = useState(0);
 const [err, setErr] = useState(null);
+const {user} = useContext(UserContext)
+
 
 useEffect(() => {
 
@@ -38,7 +42,7 @@ return (
         {review.review_body}
         <p>
         <button className="upvote-button"
-        disabled={voteStatus}
+        disabled={voteStatus || !user.username}
         onClick={(e) => {
           setVoteStatus(1);
           const upvotedReview = { ...review };
@@ -59,7 +63,7 @@ return (
        👍
       </button>
       <button className="downvote-button"
-        disabled={voteStatus}
+        disabled={voteStatus || !user.username}
         onClick={(e) => {
           setVoteStatus(-1);
           const upvotedReview = { ...review };
@@ -79,7 +83,7 @@ return (
         👎
       </button>
       <button className="reset-button"
-        disabled={!voteStatus}
+        disabled={!voteStatus || !user.username}
         onClick={(e) => {
           setVoteStatus(0);
           const upvotedReview = { ...review };

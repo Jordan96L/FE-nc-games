@@ -31,3 +31,13 @@ ul {
   height:100px;
   width: 100px;
 }
+.logout-button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.user-avatar-header {
+  height: 50px;
+  width: 50px;
+}

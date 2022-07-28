@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react";
 import ReviewCard from "./ReviewCard";
 import FilterReviews from "./FilterReviews";
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SortBy from "./SortBy";
 
 
@@ -32,6 +32,7 @@ useEffect(() => {
 
     return (
         <div className="reviews">
+            <Link to="/">Home</Link>
             <h2>Reviews</h2>
             <FilterReviews />
             <p><SortBy setSortColumn={setSortColumn} setSortOrder={setSortOrder} /></p>

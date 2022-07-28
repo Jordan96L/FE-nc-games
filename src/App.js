@@ -22,17 +22,16 @@ function App() {
           <header className="App-header">
             <Header />
           </header>
-          {(!user.username && <Home />) || (
-            <Routes>
-              <Route path="/" element={<ReviewList />} />
-              <Route path="/reviews" element={<ReviewList />} />
-              <Route path="/reviews/:review_id" element={<SingleReview />} />
-              <Route
-                path="/reviews/:review_id/comments"
-                element={<CommentList />}
-              />
-            </Routes>
-          )}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<ChangeUser />} />
+            <Route path="/reviews" element={<ReviewList />} />
+            <Route path="/reviews/:review_id" element={<SingleReview />} />
+            <Route
+              path="/reviews/:review_id/comments"
+              element={<CommentList />}
+            />
+          </Routes>
         </div>
       </UserContext.Provider>
     </BrowserRouter>

@@ -1,11 +1,10 @@
 export default function SortBy({ setSortColumn, setSortOrder }) {
     return (
       <div>
-        {/* <h2>Sort by</h2> */}
         <form>
-          <label htmlFor="sortBy">Sort by:</label>
+          <label htmlFor="sort-by">Sort by:</label>
           <select
-            id="sortBy"
+            id="sort-by"
             onChange={(e) => {
               setSortColumn(e.target.value);
             }}
