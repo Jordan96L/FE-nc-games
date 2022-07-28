@@ -1,6 +1,9 @@
 import { UserContext } from "../contexts/User.js";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import Nav from "./Nav.jsx";
+import Home from "./Home.jsx";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ChangeUser() {
@@ -11,6 +14,7 @@ const { user, setUser } = useContext(UserContext);
 
 const copyOfUsers = [...users]
 
+let navigate = useNavigate()
 
 useEffect(() => {
     setIsLoading(true)
@@ -22,6 +26,8 @@ useEffect(() => {
 
 return (
     <div>
+      
+      <Nav />
         <h3>Choose your profile:</h3>
       {isLoading ? "Loading..." : (
         <ul>
@@ -35,6 +41,7 @@ return (
             disabled={user.username}
                   onClick={() => {
                     setUser(profile);
+                    navigate("../reviews")
                   }}
                 >
                   Select

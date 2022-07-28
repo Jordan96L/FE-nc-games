@@ -2,31 +2,40 @@ import axios from "axios"
 import { useState, useEffect } from "react";
 import ReviewCard from "./ReviewCard";
 import FilterReviews from "./FilterReviews";
-import { useLocation } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
+import SortBy from "./SortBy";
 
 
 export default function ReviewList() {
 const [reviews, setReviews] = useState([])
-//const { category } = useParams()
+
 const search = useLocation().search;
 const category = new URLSearchParams(search).get('category')
 
-useEffect(() => {
-    let URL_String = "https://my-games-app1.herokuapp.com/api/reviews"
-    if (category) {
-        URL_String += `?category=${category}`;
-      }
+const [sortColumn, setSortColumn] = useState("created_at");
+  const [sortOrder, setSortOrder] = useState("desc");
 
-      axios.get(URL_String).then((response) => {
-          setReviews(response.data.reviews)
-      })
-    }, [category])
+useEffect(() => {
+    axios
+    .get(`https://my-games-app1.herokuapp.com/api/reviews`, {
+      params: {
+        category: category,
+        sort_by: sortColumn,
+        order: sortOrder,
+      },
+    })
+    .then((res) => {
+      setReviews(res.data.reviews);
+    });
+}, [category, sortColumn, sortOrder]);
+  
 
     return (
         <div className="reviews">
+            <Link to="/">Home</Link>
             <h2>Reviews</h2>
             <FilterReviews />
+            <p><SortBy setSortColumn={setSortColumn} setSortOrder={setSortOrder} /></p>
             <ul>
                 {reviews.map((review) =>{
                 return (
