@@ -12,7 +12,6 @@ const { user } = useContext(UserContext);
         <div className="comment-card">
             <p>{author}: {body}</p>
            {loggedIn && (<button
-        disabled={!loggedIn || !user.username}
         onClick={() => {
           setIsCommentDeleted(true);
           axios
