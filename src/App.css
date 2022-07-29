@@ -4,6 +4,22 @@
 
 .header {
   background-color: #264653;
+  margin: 0%;
+  padding: 0%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+}
+
+.single-review{
+  background-color: #264653;
+  width: 80%;
+  margin-top: 10%;
+  margin-left: auto;
+margin-right: auto;
 }
 
 .view-review-link {
@@ -89,8 +105,6 @@ ul {
 }
 .logout-button {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
   
 }
 

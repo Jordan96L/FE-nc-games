@@ -2,7 +2,6 @@ import { UserContext } from "../contexts/User.js";
 import { useContext } from "react";
 import ChangeUser from "./ChangeUser";
 import ReviewList from "./ReviewList";
-import userEvent from "@testing-library/user-event";
 import { Link } from "react-router-dom";
 
 export default function Home() {

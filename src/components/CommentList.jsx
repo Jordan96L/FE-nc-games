@@ -42,7 +42,7 @@ useEffect(() => {
 },[review_id, addComment])
 
 return (
-  <div>
+  <div className="comments">
       {err ? (<p>{err}</p>) : (
 
     <div className="comment-list">
