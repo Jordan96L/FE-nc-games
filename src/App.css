@@ -1,23 +1,32 @@
 .App {
   text-align: center;
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+  background: url("https://i.pinimg.com/originals/37/71/60/37716068933bae2f9b11ff90bc91b015.png");
+  background-size: cover;
+  width: 100%;
+  height: 300px;
 }
 
 .header {
   background-color: #264653;
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
 }
 
 img {
   max-width: 100%;
   height: auto;
-  width: auto\9; /* ie8 */
 }
 
 .single-review{
   background-color: #264653;
   width: 80%;
-  margin-top: 10%;
+  margin-top: 1.5em;
   margin-left: auto;
 margin-right: auto;
 }
@@ -25,6 +34,28 @@ margin-right: auto;
 .view-review-link {
   color: white;
 }
+
+body{
+  color: white;
+}
+
+.header{
+  background-color: #264653;
+  margin: 0%;
+  padding: 0%;
+}
+
+#homepage-link{
+  color: white;
+}
+
+
+
+.homepage{
+height: 60rem;
+color: white;
+}
+
 .view-review-link:visited {
   color: #c44536;
 }
@@ -44,6 +75,7 @@ margin-right: auto;
 
 .nav{
   background-color: #264653;
+margin: 0%;
 }
 
 .nav-links{
@@ -64,7 +96,7 @@ margin-right: auto;
 .review-card {
   max-width: 60%;
   align-items: center;
-  color: #000000;
+  color: white;
   border-radius: 25%;
   border: 2px solid #264653;
   background-color: #264653;
@@ -105,7 +137,8 @@ ul {
 }
 .logout-button {
   display: flex;
-  
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .user-avatar-header {

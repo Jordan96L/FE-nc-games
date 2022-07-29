@@ -19,12 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
-        <div
-          className="App"
-          style={{
-            backgroundImage: `url("https://media.timeout.com/images/105627949/750/422/image.jpg")`,
-          }}
-        >
+        <div className="App">
           <header className="App-header">
             <Header />
           </header>

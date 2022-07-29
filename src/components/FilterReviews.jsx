@@ -16,7 +16,7 @@ if (event.target.value === "") {
 return (
     <div className="filter-links">
    
-         <label htmlFor="filter-category">Category:</label>
+         <label htmlFor="filter-category" id="filter-text">Category:</label>
 
       <select onChange={handleChange} id="filter-category">
         <option value="">All</option>
