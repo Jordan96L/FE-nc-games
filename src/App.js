@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <div className="App">
-          <header className="App-header">
+          <header className="app-header">
             <Header />
           </header>
           <Routes>
