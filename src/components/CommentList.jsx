@@ -11,6 +11,7 @@ const {review_id} = useParams()
 const [isOpen, setIsOpen] = useState(false)
 const [addComment, setAddComment] = useState('')
 const [isLoading, setIsLoading] = useState(false)
+const [err, setErr] = useState(null)
 const [isCommentDeleted, setIsCommentDeleted] = useState(false)
 const { user } = useContext(UserContext);
 
@@ -23,12 +24,16 @@ const handleSubmit = (e) => {
   }).then(() => {
       setAddComment('')
       setIsLoading(false)
+  }).catch((err) => {
+    setErr('Sorry something went wrong, could not delete comment')
   })
 }
 
 const showComments = () => {
   axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`).then((res) => {
     setComments(res.data.comments)
+}).catch((err) => {
+  setErr('Oops, Sorry something went wrong')
 })
 
  }
@@ -37,6 +42,9 @@ useEffect(() => {
 },[review_id, addComment])
 
 return (
+  <div className="comments">
+      {err ? (<p>{err}</p>) : (
+
     <div className="comment-list">
          <button className="comment-button"
         onClick={() => {
@@ -54,7 +62,7 @@ return (
             {comments.map((comment) => {
                 return (
                     <li key={comment.comment_id}>
-                        <CommentCard body={comment.body} review_id={review_id} author={comment.author} showComments={showComments} comments={comments} setIsCommentDeleted={setIsCommentDeleted} comment_id={comment.comment_id}/>
+                        <CommentCard body={comment.body} review_id={review_id} author={comment.author} showComments={showComments} comments={comments} setIsCommentDeleted={setIsCommentDeleted} comment_id={comment.comment_id} err={err}/>
                     </li>
                 )
             })}
@@ -65,12 +73,13 @@ return (
         </p>
         <form onSubmit={handleSubmit}>
         <textarea 
+        placeholder="Type comment here..."
         value={addComment}
         onChange={(e) => {
             setAddComment(e.target.value)
         }}
         />
-        <p><button 
+        <p>{!user.username && <h4>Please login to post comment</h4>}<button 
         disabled={!user.username}
         type="submit">Submit</button></p>
         </form>
@@ -78,7 +87,8 @@ return (
         </div>
         </div>
       )}
-        
+        </div>
+        )}
     </div>
 )
 }

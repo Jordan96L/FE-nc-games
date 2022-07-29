@@ -8,6 +8,7 @@ import { UserContext } from "./contexts/User.js";
 import { useState } from "react";
 import ChangeUser from "./components/ChangeUser";
 import Home from "./components/Home";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState({
@@ -31,6 +32,8 @@ function App() {
               path="/reviews/:review_id/comments"
               element={<CommentList />}
             />
+            <Route path="*" element={<ErrorPage />} />
+            {/* <Route path="/*" element={<ErrorPage />} /> */}
           </Routes>
         </div>
       </UserContext.Provider>

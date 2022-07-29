@@ -10,6 +10,7 @@ export default function Header() {
             ) || (
         <h3>Please Log in</h3>
       )}  
+      
        <button
        className="logout-button"
        disabled={!user.username}
