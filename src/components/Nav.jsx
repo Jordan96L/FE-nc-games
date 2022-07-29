@@ -7,9 +7,9 @@ export default function Nav() {
     const {user} = useContext(UserContext)
     return (
         <div className="nav">
-            <Link to="/">Home</Link>
-            <p>{!user.username && <Link to="/login">Login</Link>}</p>
-            <p><Link to="/reviews">Reviews</Link></p>
+            <Link to="/" className="nav-links">Home</Link>
+            <p>{!user.username && <Link to="/login" className="nav-links">Login</Link>}</p>
+            <p><Link to="/reviews" className="nav-links">Reviews</Link></p>
             
         </div>
     )

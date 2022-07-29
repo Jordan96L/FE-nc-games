@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
 import CommentList from "./CommentList"
@@ -22,12 +22,18 @@ function showReview(){
     axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${+review_id}`)
     .then((res) => {
         setReview(res.data.review)
+    }).catch((err) => {
+      setErr('404: Review not found')
     })
 }
     showReview()
 }, [review_id])
 
 return (
+  <div>
+  {err ? (
+    <><p>{err}</p><p><Link to="/reviews" id="review-link">Back to reviews</Link></p></>
+  ) : (
     <div className="single-review">
         <Nav />
         <h3>{review.title}</h3>
@@ -102,11 +108,14 @@ return (
       >
         Reset
       </button>
+      
         </p>
         <p><CommentList /></p>
         <h5>
             Created By: {review.owner} - {Date(review.created_at)}
         </h5>
+        </div>
+        )}
     </div>
 )
 }

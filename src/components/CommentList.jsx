@@ -11,6 +11,7 @@ const {review_id} = useParams()
 const [isOpen, setIsOpen] = useState(false)
 const [addComment, setAddComment] = useState('')
 const [isLoading, setIsLoading] = useState(false)
+const [err, setErr] = useState(null)
 const { user } = useContext(UserContext);
 
 const handleSubmit = (e) => {
@@ -22,16 +23,23 @@ const handleSubmit = (e) => {
   }).then(() => {
       setAddComment('')
       setIsLoading(false)
+  }).catch((err) => {
+    setErr('Sorry something went wrong, could not delete comment')
   })
 }
 
 useEffect(() => {
   axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`).then((res) => {
     setComments(res.data.comments)
+}).catch((err) => {
+  setErr('Oops, Sorry something went wrong')
 })
 },[review_id, addComment])
 
 return (
+  <div>
+      {err ? (<p>{err}</p>) : (
+
     <div className="comment-list">
          <button className="comment-button"
         onClick={() => {
@@ -48,7 +56,7 @@ return (
             {comments.map((comment) => {
                 return (
                     <li key={comment.comment_id}>
-                        <CommentCard body={comment.body} review_id={review_id} author={comment.author}/>
+                        <CommentCard body={comment.body} review_id={review_id} author={comment.author} err={err}/>
                     </li>
                 )
             })}
@@ -72,7 +80,8 @@ return (
         </div>
         </div>
       )}
-        
+        </div>
+        )}
     </div>
 )
 }

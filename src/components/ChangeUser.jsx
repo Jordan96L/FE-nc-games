@@ -34,7 +34,7 @@ return (
             {users.map((profile) => {
                 const isMe = profile.username === user.username;
                 return (
-                    <li key={user.username}>
+                    <li key={user.username} className="user-card">
             <h3>{profile.username}</h3>
             <img src={profile.avatar_url} alt={profile.username} className="user-avatar-home"/>
             <p><button
