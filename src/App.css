@@ -1,9 +1,13 @@
 
-
 .App {
   text-align: center;
     margin: 0;
     padding: 0;
+
+}
+
+a{
+  color: black;
 
 }
 
@@ -18,6 +22,7 @@ body{
   width: 100%;
   height: 300px;
   margin: 0%;
+  margin-top: 0px;
 }
 
 .header {
@@ -30,6 +35,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 
 .single-review{
   background-color: #264653;
@@ -50,8 +56,8 @@ body{
 
 .header{
   background-color: #264653;
-  margin: 0%;
-  padding: 0%;
+display: inline-block;
+width: 100%;
 }
 
 #homepage-link{
@@ -84,7 +90,6 @@ color: white;
 
 .nav{
   background-color: #264653;
-margin: 0%;
 }
 
 .nav-links{
@@ -106,12 +111,25 @@ margin-right: auto;
   max-width: 60%;
   align-items: center;
   color: white;
-  border-radius: 25%;
+  border-radius: 20%;
   border: 2px solid #264653;
   background-color: #264653;
   margin: 20px;
   margin-left: auto;
 margin-right: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .user-card {
+     min-width: 50%;
+  }
+  .review-card{
+  min-width: 90%;
+  font-size: 14px;
+  }
+  .review-title{
+    font-size: 18px;
+  }
 }
 
 button {
@@ -144,10 +162,11 @@ ul {
   height:100px;
   width: 100px;
 }
+
 .logout-button {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
 }
 
 .user-avatar-header {
@@ -161,4 +180,18 @@ ul {
 
 #review-link{
   color: white;
+}
+
+#github-link{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.login-link{
+  color: white;
+}
+
+.login-message{
+  color: #d00000;
 }

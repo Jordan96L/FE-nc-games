@@ -4,7 +4,7 @@ export default function ReviewCard({review_id, title, category, owner, votes}) {
     const URL_String = `/reviews/${review_id}`;
     return (
         <div className="review-card">
-            <h3>{title}</h3>
+            <h3 className="review-title">{title}</h3>
             <p>Owner: {owner}</p>
             <p>Review ID: {review_id}</p>
             <p>Category: {category}</p>

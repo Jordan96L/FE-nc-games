@@ -79,7 +79,7 @@ return (
             setAddComment(e.target.value)
         }}
         />
-        <p>{!user.username && <h4>Please login to post comment</h4>}<button 
+        <p>{!user.username && <h4 className="login-message">Please login to post comment</h4>}<button 
         disabled={!user.username}
         type="submit">Submit</button></p>
         </form>
