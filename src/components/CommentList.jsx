@@ -72,7 +72,7 @@ return (
           {isLoading ? "Posting comment" : null}
         </p>
         <form onSubmit={handleSubmit}>
-        <textarea 
+        <input 
         placeholder="Type comment here..."
         value={addComment}
         onChange={(e) => {
