@@ -122,13 +122,33 @@ margin-right: auto;
 @media screen and (max-width: 480px) {
   .user-card {
      min-width: 50%;
+     margin-left: auto;
+     margin-right: auto;
   }
   .review-card{
   min-width: 90%;
   font-size: 14px;
+  margin-left: auto;
+  margin-right: 20%;
   }
   .review-title{
     font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+ 
+  .review-card{
+    width: 100%;
+    height: 100%;
+  }
+  .review-list{
+    display: inline;
+  }
+  .reviews-map li{
+display: inline-block;
+width: 33%;
+/* float: left; */
   }
 }
 

@@ -51,8 +51,8 @@ useEffect(() => {
               <h2>Reviews</h2>
               <FilterReviews />
               <p><SortBy setSortColumn={setSortColumn} setSortOrder={setSortOrder} /></p>
-            </div><div>
-                <ul>
+            </div><div className="review-list">
+                <ul className="reviews-map">
                   {reviews.map((review) => {
                     return (
                       <li key={review.review_id}>
