@@ -23,7 +23,7 @@ const [sortColumn, setSortColumn] = useState("created_at");
 
 useEffect(() => {
     axios
-    .get(`https://my-games-app1.herokuapp.com/api/reviews`, {
+    .get(`https://nc-games-lt7s.onrender.com/api/reviews`, {
       params: {
         category: category,
         sort_by: sortColumn,

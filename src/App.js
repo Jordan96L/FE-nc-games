@@ -24,7 +24,7 @@ function App() {
             <Header />
           </header>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<ChangeUser />} />
             <Route path="/login" element={<ChangeUser />} />
             <Route path="/reviews" element={<ReviewList />} />
             <Route path="/reviews/:review_id" element={<SingleReview />} />

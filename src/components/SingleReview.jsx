@@ -19,7 +19,7 @@ const {user} = useContext(UserContext)
 useEffect(() => {
 
 function showReview(){
-    axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${+review_id}`)
+    axios.get(`https://nc-games-lt7s.onrender.com/api/reviews/${+review_id}`)
     .then((res) => {
         setReview(res.data.review)
     }).catch((err) => {

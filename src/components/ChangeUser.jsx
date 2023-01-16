@@ -18,7 +18,7 @@ let navigate = useNavigate()
 
 useEffect(() => {
     setIsLoading(true)
-    axios.get('https://my-games-app1.herokuapp.com/api/users').then((res)=>{
+    axios.get('https://nc-games-lt7s.onrender.com/api/users').then((res)=>{
         setUsers(res.data.users)
         setIsLoading(false)
     })

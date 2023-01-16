@@ -20,7 +20,7 @@ const { user } = useContext(UserContext);
           setIsCommentDeleted(true);
           axios
             .delete(
-              `https://my-games-app1.herokuapp.com/api/comments/${comment_id}`
+              `https://nc-games-lt7s.onrender.com/api/comments/${comment_id}`
             )
             .then(() => {
               showComments();

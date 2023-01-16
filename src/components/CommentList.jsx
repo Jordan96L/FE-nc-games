@@ -18,7 +18,7 @@ const { user } = useContext(UserContext);
 const handleSubmit = (e) => {
   e.preventDefault()
   setIsLoading(true)
-  axios.post(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`, {
+  axios.post(`https://nc-games-lt7s.onrender.com/api/reviews/${review_id}/comments`, {
       username: user.username,
       body: addComment
   }).then(() => {
@@ -30,7 +30,7 @@ const handleSubmit = (e) => {
 }
 
 const showComments = () => {
-  axios.get(`https://my-games-app1.herokuapp.com/api/reviews/${review_id}/comments`).then((res) => {
+  axios.get(`https://nc-games-lt7s.onrender.com/api/reviews/${review_id}/comments`).then((res) => {
     setComments(res.data.comments)
 }).catch((err) => {
   setErr('Oops, Sorry something went wrong')
