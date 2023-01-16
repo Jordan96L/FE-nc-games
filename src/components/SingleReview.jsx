@@ -57,7 +57,7 @@ return (
           setErr(null);
           axios
             .patch(
-              `https://tr-games-api.herokuapp.com/api/reviews/${review_id}`,
+              `https://nc-games-lt7s.onrender.com/api/reviews/${review_id}`,
               { inc_votes: 1 }
             )
             .catch((err) => {
@@ -77,7 +77,7 @@ return (
           setReview(upvotedReview);
           axios
             .patch(
-              `https://tr-games-api.herokuapp.com/api/reviews/${review_id}`,
+              `https://nc-games-lt7s.onrender.com/api/reviews/${review_id}`,
               { inc_votes: -1 }
             )
             .catch((err) => {
@@ -97,7 +97,7 @@ return (
           setReview(upvotedReview);
           axios
             .patch(
-              `https://tr-games-api.herokuapp.com/api/reviews/${review_id}`,
+              `https://nc-games-lt7s.onrender.com/api/reviews/${review_id}`,
               { inc_votes: -voteStatus }
             )
             .catch((err) => {
